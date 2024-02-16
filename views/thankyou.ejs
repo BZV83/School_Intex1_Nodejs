@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Social Media in Provo</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top mt-0" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#aboutus">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#howtohelp">How to Help</a></li>
+                        <form action="/login" method="GET">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#dashboard">Dashboard</a></li>
+                    </form>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/survey">Survey</a></li>
+                        <form action="/login" method="GET">
+                            <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Sign In</button></li>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading-->
+                <img src="/img/portfolio/heartlight.svg" alt="Heart drawing" width="35%"><br><br>
+                <h2>Thank you for completing our survey!</h2><br>
+                <h4>Our recommended suggestions for you:</h4><br>
+                <ul style="text-align: left; width: 70%">
+                    <li>Set goals and make plans on how to be intentional with your time (especially your time online).</li>
+                    <li>Find time to connect with a friend or parent when you feel yourself spending too much time on social media.</li>
+                    <li>Try to be active for 30 minutes a day going on a walk or run! </li>
+                    <li>Remember how incredible you are!</li>
+                </ul>
+                <form action="/" method="GET">
+                    <div class="text-center mt-4">
+                        <button class="btn btn-xl btn-outline-light" type="submit">
+                            Back to Home
+                        </button>
+                    </div>
+                </form>              
+            </div>
+        </header>
+
+        <script>
+        ageUser = document.getElementByID("age").value 
+
+            if (ageUser <= 18)
+            {
+                sOutput = "Find time to connect with a friend or parent when you feel yourself spending too much time on social media. <br> Be open with your family or friends about your feelings (when overwhelmed, happy, feeling down).<br> Try to be active for 30 minutes a day- going on a walk or run, playing sports or anything that gets you moving! <br> Remember how incredible you are!"
+                document.getElementById("output").innerHTML = sOutput
+            }
+            else if(ageUser <= 27)
+            {
+                sOutput = "When feeling overwhelmed, take time to reconnect with your surroundings, do something productive or get outside and go for a walk/run.<br>Find a new hobby, something that keeps you interested or could help you learn something new.<br>Consider listening to a podcast, finding a job, focusing on school/work when finding yourself spending too many hours a week on social media. <br>Connect with friends about social media, set goals and help each other keep them! "
+                document.getElementById("output").innerHTML = sOutput
+            }
+            else 
+            {
+                sOutput = "Set goals and make plans on how to be intentional with your time (especially your time online).<br>Be open with those you care about (friends, family, children, spouce) about the struggles you may have with social media/ technology and ask for help with your goals.<br>Try to limit time on your phone before bed and in the morning!<br>When feeling overwhelmed, take time to reconnect with your surroundings, do something productive or get outside and go for a walk/run."
+                document.getElementById("output").innerHTML = sOutput
+            }
+
+        </script>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Survey</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        .formsurvey {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="radio"] + label,
+        input[type="checkbox"] + label {
+            display: inline-block;
+            margin-right: 8px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="radio"]:checked + label,
+        input[type="checkbox"]:checked + label {
+            background-color: #0B3954;
+            color: #fff;
+        }
+
+        div[id^="rating_"] {
+            margin-bottom: 16px;
+        }
+
+        .checkbox-cluster {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        input[type="submit"] {
+            background-color: #0B3954;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0B3954;
+        }
+
+        #q5 .checkbox-cluster {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top mt-0" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#aboutus">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#howtohelp">How to Help</a></li>
+                        <form action="/login" method="GET">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/#dashboard">Dashboard</a></li>
+                    </form>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/survey">Survey</a></li>
+                        <form action="/login" method="GET">
+                            <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Sign In</button></li>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<form class="formsurvey" action="/submit_survey" method="POST" style="margin-top: 150px;" style="margin-top: 150px; margin-bottom: 20px;">
+    <!-- 1. Age -->
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required min="0" step="1">
+    <br><br>
+    <!-- 2. Gender -->
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select one</option>
+        <option value= 'Male'>Male</option>
+        <option value= 'Female'>Female</option>
+        <option value= 'Non-Binary'>Non-Binary</option>
+        <option value= 'Transgender'>Transgender</option>
+        <option value= 'N/A'>N/A</option>
+    </select>
+    <br><br>
+    <!-- 3. Relationship status -->
+    <label for="relationship">Relationship status:</label>
+    <select id="relationship" name="relationship" required>
+        <option value="" disabled selected>Select one</option>
+        <option value= 'In a relationship'>In a relationship</option>
+        <option value= 'Single'>Single</option>
+        <option value= 'Married'>Married</option>
+        <option value= 'Divorced'>Divorced</option>
+    </select>
+    <br><br>
+    <!-- 4. Occupation status -->
+    <label for="occupation">Occupation status:</label>
+    <select id="occupation" name="occupation" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value= 'High School Student'>High School Student</option>
+        <option value= 'University Student'>University Student</option>
+        <option value= 'Salaried Worker'>Salaried Worker</option>
+        <option value= 'Retired'>Retired</option>
+    </select>
+    <br><br>
+    <!-- 5. Affiliated organizations -->
+    <fieldset id="q5">
+        <label for="affilation" id="affiliation">What type of organizations are you affiliated with? (Select all that apply)</label>
+        <div class="checkbox-cluster">
+            <input type="checkbox" id="company" name="aff1" value="3">
+            <label for="company">Company</label>
+    
+            <input type="checkbox" id="government" name="aff2" value="4">
+            <label for="government">Government</label>
+    
+            <input type="checkbox" id="pre-University" name="aff3" value="2">
+            <label for="pre-University">Pre-University</label>
+    
+            <input type="checkbox" id="university" name="aff4" value="1">
+            <label for="university">University</label>
+    
+            <input type="checkbox" id="n/a" name="aff5" value="5">
+            <label for="n/a">N/A</label>
+        </div>
+    </fieldset>
+    <br>
+    <!-- 6. Use social media -->
+    <label for="use_social_media">Do you use social media?</label>
+    <input type="radio" id="use_social_media_yes" name="use_social_media" value="Yes" required onclick="hidetheform()">
+    <label for="use_social_media_yes">Yes</label>
+    <input type="radio" id="use_social_media_no" name="use_social_media" value="No" required onclick="hidetheform()">
+    <label for="use_social_media_no">No</label>
+    <br><br>
+    <!-- 7. Social media platforms -->
+    <fieldset id="q7-q11">
+        <label for="social_media_platforms" id="social_media_platforms">What social media platforms do you commonly use? (Select all that apply)</label>
+        <div class="checkbox-cluster">
+            <input type="checkbox" id="discord" name="sm5" value="5" class="social-media-checkbox">
+            <label for="discord">Discord</label>
+        
+            <input type="checkbox" id="facebook" name="sm1" value="1" class="social-media-checkbox">
+            <label for="facebook">Facebook</label>
+        
+            <input type="checkbox" id="instagram" name="sm3" value="3" class="social-media-checkbox">
+            <label for="instagram">Instagram</label>
+        
+            <input type="checkbox" id="pinterest" name="sm7" value="7" class="social-media-checkbox">
+            <label for="pinterest">Pinterest</label>
+    
+            <input type="checkbox" id="reddit" name="sm6" value="6" class="social-media-checkbox">
+            <label for="reddit">Reddit</label>
+        
+            <input type="checkbox" id="snapchat" name="sm9" value="9" class="social-media-checkbox">
+            <label for="snapchat">Snapchat</label>
+        
+            <input type="checkbox" id="tiktok" name="sm8" value="8" class="social-media-checkbox">
+            <label for="tiktok">TikTok</label>
+        
+            <input type="checkbox" id="twitter" name="sm2" value="2" class="social-media-checkbox">
+            <label for="twitter">Twitter</label>
+        
+            <input type="checkbox" id="youtube" name="sm4" value="4" class="social-media-checkbox">
+            <label for="youtube">YouTube</label>
+        </div>
+    <br>
+    <!-- 8. Hours on social media -->
+    <label for="hours_on_social_media" id="hours_on_social_media">How many hours on average do you spend on social media every day?</label>
+    <select id="hours_on_social_media" name="hours_on_social_media" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="<1">&lt; 1</option>
+        <option value="1-2">1-2</option>
+        <option value="2-3">2-3</option>
+        <option value="3-4">3-4</option>
+        <option value="4-5">4-5</option>
+        <option value=">5">&gt; 5</option>
+    </select>
+    <br><br>
+    <!-- 9. How often do you find yourself using social media without a specific purpose? -->
+    <label for="rating_9">How often do you find yourself using social media without a specific purpose?<br> Never -> Always</label>
+    <div id="rating_9"></div>
+    <br>
+    <!-- 10. How often do you get distracted by social media when you are busy doing something? -->
+    <label for="rating_10">How often do you get distracted by social media when you are busy doing something? <br> Never -> Always</label>
+    <div id="rating_10"></div>
+    <br>
+    <!-- 11. Do you feel restless if you haven’t used social media in a while? -->
+    <label for="rating_11">Do you feel restless if you haven’t used social media in a while?<br> Never -> Always</label>
+    <div id="rating_11"></div>
+    <br>
+  </fieldset>
+    <!-- 12. How easily distracted are you? -->
+    <label for="rating_12">How easily distracted are you?<br> Never -> Always</label>
+    <div id="rating_12"></div>
+    <br>
+    <!-- 13. How much are you bothered by worries? -->
+    <label for="rating_13">How much are you bothered by worries?<br> Never -> Always</label>
+    <div id="rating_13"></div>
+    <br>
+    <!-- 14. Do you find it difficult to concentrate on things? -->
+    <label for="rating_14">Do you find it difficult to concentrate on things?<br> Never -> Always</label>
+    <div id="rating_14"></div>
+    <br>
+  <fieldset id="q15-q17">
+    <!-- 15. How often do you compare yourself to other successful people through the use of social media? -->
+    <label for="rating_15">How often do you compare yourself to other successful people through the use of social media?<br> Never -> Always</label>
+    <div id="rating_15"></div>
+    <br>
+    <!-- 16. Following the previous question, how do you feel about these comparisons, generally speaking? -->
+    <label for="rating_16">Following the previous question, how do you feel about these comparisons, generally speaking?<br> Strongly Dislike -> Strongly Like</label>
+    <div id="rating_16"></div>
+    <br>
+    <!-- 17. How often do you look to seek validation from features of social media? -->
+    <label for="rating_17">How often do you look to seek validation from features of social media?<br> Never -> Always</label>
+    <div id="rating_17"></div>
+    <br>
+    <!-- 18. How often do you feel depressed or down? -->
+    <label for="rating_18">How often do you feel depressed or down?<br> Never -> Always</label>
+    <div id="rating_18"></div>
+    <br>
+    <!-- 19. How frequently does your interest in daily activities fluctuate? -->
+    <label for="rating_19">How frequently does your interest in daily activities fluctuate?<br> Never -> Always</label>
+    <div id="rating_19"></div>
+    <br>
+    <!-- 20. How often do you face issues regarding sleep? -->
+    <label for="rating_20">How often do you face issues regarding sleep?<br> Never -> Always</label>
+    <div id="rating_20"></div>
+  </fieldset>
+    <!-- Submit button -->
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<script>
+    function createRadioButtons(questionNumber) {
+        var radioDiv = document.getElementById('rating_' + questionNumber);
+
+        for (var j = 1; j <= 5; j++) {
+            var radioInput = document.createElement('input');
+            radioInput.type = 'radio';
+            radioInput.id = 'rating_' + questionNumber + '_' + j;
+            radioInput.name = 'rating_' + questionNumber;
+            radioInput.value = j;
+            radioInput.required = true;
+
+            var label = document.createElement('label');
+            label.htmlFor = 'rating_' + questionNumber + '_' + j;
+            label.appendChild(document.createTextNode(j));
+
+            radioDiv.appendChild(radioInput);
+            radioDiv.appendChild(label);
+        }
+    }
+
+    // Call the function for each question
+    for (var i = 9; i <= 20; i++) {
+        createRadioButtons(i);
+    }
+
+    // function resetFieldsets() {
+    //     // Reset fieldsets to their default state
+    //     var fieldsetsToReset = ['q7-q11', 'q15-q17'];
+
+    //     fieldsetsToReset.forEach(function (fieldsetId) {
+    //         var fieldset = document.getElementById(fieldsetId);
+    //         fieldset.style.display = 'block';
+
+    //         // Reset all input elements and select within the fieldset
+    //         var formElements = fieldset.querySelectorAll('input, select');
+    //         formElements.forEach(function (element) {
+    //             if (element.type === 'checkbox' || element.type === 'radio') {
+    //                 element.checked = false;
+    //                 element.disabled = true; // Disable hidden elements
+    //             } else {
+    //                 element.value = '';
+    //                 element.disabled = true; // Disable hidden elements
+    //             }
+    //         });
+    //     });
+    // }
+
+    // function enableFieldsetElements(fieldset) {
+    //     // Enable all input elements and select within the fieldset
+    //     var formElements = fieldset.querySelectorAll('input, select');
+    //     formElements.forEach(function (element) {
+    //         element.disabled = false; // Enable elements
+    //     });
+    // }
+
+    // function hidetheform() {
+    //     let radioNo = document.getElementById('use_social_media_no');
+    //     let formToHide1 = document.getElementById('q7-q11');
+    //     let formToHide2 = document.getElementById('q15-q17');
+
+    //     if (radioNo.checked) {
+    //         resetFieldsets(); // Reset values and disable hidden elements when the user clicks "No"
+    //         formToHide1.style.display = 'none';
+    //         formToHide2.style.display = 'none';
+    //     } else {
+    //         enableFieldsetElements(formToHide1); // Enable elements when the user clicks "Yes"
+    //         enableFieldsetElements(formToHide2);
+    //         formToHide1.style.display = 'block';
+    //         formToHide2.style.display = 'block';
+    //     }
+    // }
+
+        // Function to check if radio buttons are answered for questions 9-20
+        function checkRadioButtons() {
+            for (var i = 9; i <= 20; i++) {
+                var radioButtons = document.getElementsByName('rating_' + i);
+                var isAnswered = false;
+
+                for (var j = 0; j < radioButtons.length; j++) {
+                    if (radioButtons[j].checked) {
+                        isAnswered = true;
+                        break;
+                    }
+                }
+
+                // If not answered, show an alert and prevent form submission
+                if (!isAnswered) {
+                    alert('Please answer question ' + i + '.');
+                    return false;
+                    }
+                }
+
+            // All questions are answered, allow form submission
+            return true;
+        }
+
+        // Add a submit event listener to the form
+        var form = document.querySelector('.formsurvey');
+        form.addEventListener('submit', checkRadioButtons);
+</script>
+</body>
+</html>

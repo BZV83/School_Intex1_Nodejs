@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Social Media in Provo</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top mt-0" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Home</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <form action="/addUser" method="POST">
+                    <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Create New Account</button></li>
+                    </form>
+                    <form action="/login" method="GET">
+                        <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Sign In</button></li>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <label><b>Survey Information:</b></label>
+
+   <table>
+     <thead>
+       <tr>
+         <th>SurveyID</th>
+         <th>Date</th>
+         <th>Time</th>
+         <th>Age</th>
+         <th>Gender</th>
+         <th>Relationship Status</th>
+         <th>Occupation</th>
+         <th>Uses SM?</th>
+         <th>Avg. Hours on SM</th>
+         <th>How Often SM Used w/o Purpose</th>
+         <th>How Often Distracted by SM When Busy</th>
+         <th>Restless if Not Used SM in a While?</th>
+         <th>Ease of Distraction</th>
+         <th>How Much Bothered by Worries</th>
+         <th>Difficulty Concentrating</th>
+         <th>How Often Compare Self to Other Successful People on SM</th>
+         <th>General Feeling of Comparisons</th>
+         <th>How Often Seeking Validation on SM</th>
+         <th>How Often Depressed</th>
+         <th>How Often Interest in Activities Fluctuating</th>
+         <th>How Often Having Issues w/Sleep</th>
+         <th>Survey Location</th>
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+      <% for (let iCount = 0; iCount < surveyentry.length; iCount++) { %>
+         <tr>
+           <td><%= surveyentry[iCount].SurveyID %></td>
+           <td><%= surveyentry[iCount].Date.toLocaleDateString('en-US') %></td>
+           <td><%= surveyentry[iCount].Time %></td>
+           <td><%= surveyentry[iCount].Age %></td>
+           <td><%= surveyentry[iCount].Gender %></td>
+           <td><%= surveyentry[iCount].RelationshipStatus %></td>
+           <td><%= surveyentry[iCount].OccupationStatus %></td>
+           <td><%= surveyentry[iCount].UsesSocialMedia %></td>
+           <td><%= surveyentry[iCount].AvgDailyHoursOnAllSocialMedia %></td>
+           <td><%= surveyentry[iCount].RatingUsingSocialMediaWithoutPurpose %></td>
+           <td><%= surveyentry[iCount].RatingGettingDistractedBySocialMediaWhenBusy %></td>
+           <td><%= surveyentry[iCount].RatingRestlessWithoutSocialMedia %></td>
+           <td><%= surveyentry[iCount].RatingEasilyDistracted %></td>
+           <td><%= surveyentry[iCount].RatingBotheredByWorries %></td>
+           <td><%= surveyentry[iCount].RatingDifficultyConcentrating %></td>
+           <td><%= surveyentry[iCount].RatingComparesToOtherSuccessfulPeople %></td>
+           <td><%= surveyentry[iCount].RatingFeelingsAboutComparisons %></td>
+           <td><%= surveyentry[iCount].RatingSeekValidationFromSocialMedia %></td>
+           <td><%= surveyentry[iCount].RatingDepression %></td>
+           <td><%= surveyentry[iCount].RatingInterestFluctuation %></td>
+           <td><%= surveyentry[iCount].RatingSleepIssues %></td>
+           <td><%= surveyentry[iCount].Location %></td>
+           <td style="text-align: center;">
+           </td>
+           <td style="text-align: center;">
+           </td>
+         </tr>
+      <% } %>
+     </tbody>
+   </table>
+</body>
+</html>

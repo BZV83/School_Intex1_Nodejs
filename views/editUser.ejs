@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Edit your Account</title> 
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #bfd7ea;
+            }
+
+            .login-container {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+            }
+
+            button:hover {
+                background-color: #204459;
+            }
+
+            #error-message {
+                color: #ff0000;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top mt-0" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <form action="/addUser" method="GET">
+                          <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Create New Account</button></li>
+                        </form>
+                        <form action="/login" method="GET">
+                            <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">Sign In</button></li>
+                        </form>
+                        <form action="/displayUser" method="GET">
+                          <li class="nav-item mx-0 mx-lg-1"><button class="nav-link py-3 px-0 px-lg-3 rounded" type="submit">View Account</button></li>
+                      </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- make input options to edit current user account information. create save button to submit-->
+        <div class="login-container">
+            <h2>Edit Account</h2>
+            <form action="/editUser" method="POST">
+                <input type="hidden" id="User_ID" name="User_ID" value="<%=myAuthentication[0].User_ID %>">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" value="<%=myAuthentication[0].first_name %>" required>
+
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" value="<%=myAuthentication[0].last_name %>" required>
+    
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<%=myAuthentication[0].username %>" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" value="<%=myAuthentication[0].password %>" required>
+    
+                <button type="submit" style="background-color: #0b3954; color: #fff; padding: 10px 15px; border: none; border-radius: 3px; cursor: pointer;">Save</button>
+            </form>
+        </div>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "smumh",
+  "version": "1.0.0",
+  "description": "An application for social media's impact on mental health",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Brendan Vick, Fielding Demars, Justin Chew, and Sadie Eyre",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "knex": "^3.1.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "tablefilter": "^0.7.2"
+  }
+}

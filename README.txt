@@ -11,13 +11,3 @@ sensitive data.
 
 This node application contains a landing page view, a form view for citizens to submit a form to a database, 
 a login page with an accompanying account creation/edit view, as well as a dashboard view for the citizens of Provo.
-
-
-
-
-Important information to access the site and admin credentials:
-
-URL: https://smumhgroup1-3.us-east-1.elasticbeanstalk.com/
-
-Username: user
-Password: pass
